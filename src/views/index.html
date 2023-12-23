@@ -5,49 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./css/style.css">
-    <title>ElectronApp</title>
+    <title>BytePilote</title>
 </head>
 <body>
 
     <main>
         <div class = "content">
-            <div class = "row">
-                <div class = "master-containers">
-                    <h1 align = "left">cpu</h1>
-                    <div class = "progress-bar" id = "progress-bar">
-
-                    </div>
-                </div>
-                <div class = "master-containers">
-                    <h1 align = "left">gpu</h1>
-                    <div class = "progress-bar" id = "progress-bar">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class = "row">
-                <div class = "slave-containers">
-                    <h1 align = "left">ram</h1>
-                    <div class = "progress-bar" id = "progress-bar">
-
-                    </div>
-                </div>
-                <div class = "slave-containers">
-                    <h1 align = "left">réseau</h1>
-                </div>
-                <div class = "slave-containers">
-                    <h1 align = "left">Stockage</h1>
-                </div>
-            </div>
-            <div class = "process-container">
-                
-            </div>
-            <!--
+                        
             <h3 id = "cpuName"></h3>
             <h3 id = "cpuCores"></h3>
             <h3 id = "cpuSpeed"></h3>
-    
+
+            <div class = "row">
+                <div class = "master-containers">
+                    <h1 align = "left">CPU</h1>
+                    <div class = "circle-progress-bar" id = "progress-bar"></div>
+
+                      
+                </div>
+                <div class = "master-containers">
+                    <h1 align = "left">GPU</h1>
+                    <div class = "circle-progress-bar" id = "progress-bar">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "slave-containers">
+                    <h1 align = "left">RAM</h1>
+                    <div class = "circle-progress-bar" id = "progress-bar">
+
+                    </div>
+                </div>
+                <div class = "slave-containers">
+                    <h1 align = "left">Réseau</h1>
+                </div>
+                <div class = "slave-containers">
+                    <h1 align = "left">Stockage</h1>
+                    
+                </div>
+            </div>
+            <div class = "process-container">
+                <h1>Principaux processus</h1>
+            </div>
+    <!--
             <h3 id = "gpuName"></h3>
             <h3 id = "gpuSpeed"></h3>
             <h3 id = "gpuSpeed"></h3>    -->
@@ -56,16 +58,21 @@
         <nav>
             <ul>
                 <li>
-                    <button class = "active" onclick="progressTheBar(30)"><i class="ri-computer-line"> Overall</i></button>
+                    <button class = "active" onclick="test()"><i class="ri-computer-line"></i> Overview</button>
                 </li>
                 <li>
-                    <button><i class = "ri-eye-line"> Sys specs</i></button>
+                    <button><i class = "ri-eye-line"></i> Sys specs</button>
                 </li>
                 <li>
-                    <button><i class = "ri-keyboard-box-line"> Keyboard</i></button>
+                    <button><i class = "ri-keyboard-box-line"></i> Keyboard</button>
                 </li>
                 <li>
-                    <button><i class = "ri-mouse-line"> Mouse</i></button>
+                    <button><i class = "ri-mouse-line"></i> Mouse</button>
+                </li>
+
+                <div class = "hz-separator"></div>
+                <li>
+                    <button style="bottom: 0; position:absolute; margin-bottom: 15px; border-top: 2px solid #36393e;"><i class = "ri-settings-line"></i> Settings</button>
                 </li>
             </ul>
         </nav>

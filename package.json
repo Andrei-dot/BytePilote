@@ -13,8 +13,13 @@
     "electron": "^28.1.0"
   },
   "dependencies": {
+    "current-processes": "^0.2.1",
     "electron-reload": "^2.0.0-alpha.1",
+    "lodash": "^4.17.21",
     "nodemon": "^3.0.2",
+    "process-list": "^2.0.0",
+    "ps-list": "^8.1.1",
+    "ps-node": "^0.1.6",
     "remixicon": "^4.0.1",
     "systeminformation": "^5.21.21"
   }

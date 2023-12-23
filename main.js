@@ -6,9 +6,10 @@ const createWin = () => {
     const win = new BrowserWindow({
         width: 900,
         height: 600,
-        //autoHideMenuBar: true,
+        autoHideMenuBar: true,
         resizable: false,
         roundedCorners: true,
+        icon: __dirname + '/icon.ico',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,

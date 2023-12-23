@@ -21,8 +21,9 @@ cpuSpeed.innerText = `CPU Speed : ${cpus[0].speed}`;
  * Gpu 
  */
 
-const gpuName = document.getElementById("gpuName");
+// const gpuName = document.getElementById("gpuName");
 
+/*
 function getGpuInfos() {
 
     const gl = document.createElement('canvas').getContext('webgl');
@@ -34,7 +35,7 @@ function getGpuInfos() {
     if(debugInfo) {
         /*
          * Le problème ici c'est que les noms de gpu sont pas tous de la même taille, par conséquent => substring par regex
-         */
+         
         
         let gpuNameString = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL).substring(15, 38);
         gpuName.innerText = `GPU Name : ` + gpuNameString;
@@ -42,4 +43,4 @@ function getGpuInfos() {
     return { error : "No webgl info", };
 }
 
-getGpuInfos();
+getGpuInfos();*/

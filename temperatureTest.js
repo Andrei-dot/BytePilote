@@ -6,7 +6,7 @@ setInterval(()=>{
         });
     },5000);
     */
-
+/*
 const si        = require('systeminformation');
 
 si.cpuTemperature().then(data => {
@@ -15,4 +15,15 @@ si.cpuTemperature().then(data => {
     } catch(e) {
 
     }
-})
+})*/
+
+async function test() {
+    const { snapshot } = require("process-list");
+ 
+    const tasks = await snapshot('name', 'cpu', 'pmem');
+    init = txt.indexOf('(');
+    fin = txt.indexOf(')');
+    console.log(txt.substr(init+1,fin-init-1))
+    console.log(tasks);
+}
+test();
