@@ -13,26 +13,35 @@ body {
     color: white;
 }
 
-
-.temp-span {
-    width: fit-content;
-    height: fit-content;
-    position: absolute;
-    left: 351px;
-    top: 105px;
-    color: white;
-}
-.temp-span::after {
-    content: " : 30°"
+.hz-bar-container {
+    height: 80%;
+    width: min-content;
+    float: right;
+    h3 {
+        padding: 0;
+        margin-top: 0;
+        margin-left: 10px;
+        margin-bottom: 0px;
+        height: fit-content;
+        width: fit-content;
+        color: color;
+        font-size: 16px;
+        font-weight: inherit;
+    }
 }
 
 .hz-progress-bar {
     margin: 10px;
-    margin-top: 22px;
     width: 150px;
     height: 20px;
     background-color: $navbarColor;
     float: right;
+    &:first-child{
+        margin-top: 20px;
+    }
+    &:last-child{
+        margin-top: 0px;
+    }
 }
 
 .hz-progress-bar-filler {
@@ -53,10 +62,6 @@ body {
     background: 
       radial-gradient(closest-side, $backgroundColor 79%, transparent 80% 100%),
       conic-gradient($veryLightGray 75%, $navbarColor 0);   
-}
-
-.circle-progress-bar::before {
-    content: "75%";
 }
 
 main {

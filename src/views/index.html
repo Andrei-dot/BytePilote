@@ -10,32 +10,53 @@
 <body>
 
     <main>
-        <div class = "content">
+        <div class = "content" id = "content">
                         
             <!--
             <h3 id = "cpuName"></h3>
             <h3 id = "cpuCores"></h3>
-            <h3 id = "cpuSpeed"></h3>-->
+            <h3 id = "cpuSpeed"></h3>
 
+            <h3 id = "gpuTemp"></h3>
+            -->
+            
             <div class = "row">
-                <div class = "master-containers">
+                <div class = "master-containers" id = "cpuContainer">
                     <h1 align = "left">CPU</h1>
-                        <div class = "hz-progress-bar" id = "hz-progress-bar-cpu">
-                            <div class = "hz-progress-bar-filler" style = "width: 30%;"></div>
-                        </div>
-                        <span class = "temp-span">Température</span>    
+                    
+                        <div class = "hz-bar-container">
+                            <div class = "hz-progress-bar" id = "hz-progress-bar-cpu-1">
+                                <div class = "hz-progress-bar-filler" style = "width: 30%;"></div>
+                            </div>
+                            <h3>Température</h3>
+                            <div class = "hz-progress-bar" id = "hz-progress-bar-cpu">
+                            </div>
+                            <h3>Horloge</h3>
 
-                        <div class = "hz-progress-bar" id = "hz-progress-bar-cpu">
                         </div>
+
 
                         <div class = "circle-progress-bar" id = "circle-progress-bar-cpu">
                             <h1 align = "center" id ="h1-circle-progress-bar" style = "margin-right: 3px;">75%</h1>
                         </div>
                 </div>
-                <div class = "master-containers">
+                <div class = "master-containers" id = "gpuContainer">
                     <h1 align = "left">GPU</h1>
-                    <div class = "circle-progress-bar" id = "progress-bar">
 
+                    <div class = "hz-bar-container">
+                        <div class = "hz-progress-bar" id = "hz-progress-bar-gpu-1">
+                            <div class = "hz-progress-bar-filler" id = "hz-filler-bar-gpu-1" style = "width: 1%;"></div>    
+                        </div>
+                        <h3 id = "gpuTemp">Température</h3>
+
+                        <div class = "hz-progress-bar" id = "hz-progress-bar-gpu-2">
+                            <div class = "hz-progress-bar-filler" id = "hz-filler-bar-gpu-2" style = "width: 80%;"></div>    
+                        </div>    
+                        <h3>Clocking</h3>                
+                    </div>
+                    
+                    <div class = "circle-progress-bar" id = "circle-progress-bar-gpu">
+                        <h1 align = "center" id = "h1-circle-progress-bar-gpu" style = "margin-right: 3px;">75%</h1>
                     </div>
                 </div>
             </div>
@@ -70,7 +91,7 @@
                     <button class = "active" onclick="editProgressBarPercentage(100)"><i class="ri-computer-line"></i> Overview</button>
                 </li>
                 <li>
-                    <button><i class = "ri-eye-line"></i> Sys specs</button>
+                    <button onclick = "clearBox('content')"><i class = "ri-eye-line"></i> Sys specs</button>
                 </li>
                 <li>
                     <button><i class = "ri-keyboard-box-line"></i> Keyboard</button>
@@ -89,6 +110,6 @@
 
 
     <script src = "../js/render.js"></script>
-    <script src = "../js/circleProgressbar.js"></script>
+    <script src = "../js/componentsInfo.js"></script>
 </body>
 </html>

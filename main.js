@@ -6,7 +6,7 @@ const createWin = () => {
     const win = new BrowserWindow({
         width: 900,
         height: 600,
-        autoHideMenuBar: true,
+        autoHideMenuBar: false,
         resizable: false,
         roundedCorners: true,
         icon: __dirname + '/icon.ico',
