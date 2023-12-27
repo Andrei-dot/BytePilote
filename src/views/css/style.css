@@ -95,7 +95,7 @@ main .content .row:nth-child(2) {
 main .content .row .master-containers {
   transition: 0.5s ease;
   border-radius: 8px;
-  width: 315px;
+  width: 327px;
   border: 1px solid #1e2124;
 }
 main .content .row .master-containers:hover {
@@ -107,7 +107,7 @@ main .content .row .slave-containers {
   transition: 0.5s ease;
   margin-top: 10px;
   border-radius: 8px;
-  width: 187px;
+  width: 210px;
   border: 1px solid #1e2124;
 }
 main .content .row .slave-containers:hover {
@@ -118,7 +118,7 @@ main .content .row .slave-containers:hover {
 main .content .process-container {
   transition: 0.5s ease;
   height: 120px;
-  width: 650px;
+  width: 677px;
   margin-top: 10px;
   border-radius: 8px;
   border: 1px solid #1e2124;
