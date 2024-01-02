@@ -1,16 +1,17 @@
-const osu                   = require('node-os-utils');
-const { exec }              = require('child_process');
-const { promisify }         = require('util');
+const osu                           = require('node-os-utils');
+const { exec }                      = require('child_process');
+const { promisify }                 = require('util');
+const opsys                         = require('os');
+const { stdout, stderr }            = require('process');
 const { copyFileSync, cpSync }      = require('fs');
-const execAsync             = promisify(exec);
-const opsys                 = require('os');
-const { stdout, stderr }    = require('process');
-const osvar                 = process.platform;
+const diskinfo                      = require('diskinfo');
+const execAsync                     = promisify(exec);
+const osvar                         = process.platform;
 //const speedTest             = require('speedtest-net');
 
-const cpu                       = osu.cpu;
-const gpuTempeturyCommand       = 'nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'; 
-const gpuNameCmd                = 'nvidia-smi --query-gpu=gpu_name --format=csv, noheader'
+const cpu                           = osu.cpu;
+const gpuTempeturyCommand           = 'nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'; 
+const gpuNameCmd                    = 'nvidia-smi --query-gpu=gpu_name --format=csv, noheader'
 
 const isWin     = false;
 const isMac     = false;
@@ -39,11 +40,23 @@ function switchPlatform() {
             break;
     }
 }
+
 /******************************
  *  
- * RAM Information 
+ * Stockage info 
  * 
  *******************************/
+
+diskinfo.getDrives(function(err,devices) {
+    const div = document.getElementById("stockage-container");
+
+    for(let i = 0;  i < 3; i++) {
+        const node = document.createElement("h2");
+        const textnode = document.createTextNode(devices[i].mounted + devices[i].capacity);
+        node.appendChild(textnode);
+        div.appendChild(node);
+    }
+});
 
 /******************************
  *  
@@ -95,20 +108,8 @@ const loop = setInterval(() => {
     editCircleProgressBarPercentage("circle-progress-bar-ram",((opsys.freemem / opsys.totalmem) * 100 / 2).toFixed(0));
     editCircleBarTitles("h1-circle-progress-bar-ram",((opsys.freemem / opsys.totalmem) * 100 / 2).toFixed(0));
 
-    const upload = document.getElementById("up");
-    const download = document.getElementById("download");
-
-    
-    /*exec("speed-test --json", (err, stdout, stderr) => {
-        if(err||stderr) {
-            return upload.innerText = "Up : /", 
-            download.innerText = "Down : /"; 
-        } else {
-            const result = JSON.parse(stdout);
-            upload.innerText = `Up : ${result.upload}`;
-            download.innerText = `Down : ${result.download}`;    
-        }
-    });*/
+    // const upload = document.getElementById("up");
+    // const download = document.getElementById("download");
 }, 500);
 
 const loopGpu = setInterval(() => {

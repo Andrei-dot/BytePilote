@@ -1,14 +1,13 @@
 const { app, BrowserWindow }            = require('electron');
-const path                              = require('path');                          
+const path                              = require('path');     
+
 require('electron-reload')(__dirname);
 const createWin = () => {
-
     const win = new BrowserWindow({
         width: 900,
         height: 600,
         autoHideMenuBar: false,
         resizable: false,
-        roundedCorners: true,
         icon: __dirname + '/icon.ico',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
@@ -16,9 +15,8 @@ const createWin = () => {
             contextIsolation: false,
         }
     })
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
     win.loadFile('./src/views/index.html');
-    // win.loadURL("http://github.com");
 }
 
 app.whenReady().then(() => {

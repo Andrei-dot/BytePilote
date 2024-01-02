@@ -8,7 +8,6 @@
     <title>BytePilote</title>
 </head>
 <body>
-
     <main>
         <div class = "content" id = "content">
                         
@@ -32,9 +31,7 @@
                             <div class = "hz-progress-bar" id = "hz-progress-bar-cpu">
                             </div>
                             <h3>Horloge</h3>
-
                         </div>
-
 
                         <div class = "circle-progress-bar" id = "circle-progress-bar-cpu">
                             <h1 align = "center" id ="h1-circle-progress-bar" style = "margin-right: 3px;">75%</h1>
@@ -74,9 +71,8 @@
                     <h2 style = "margin-left: 15px;" id = "up">Up : </h2>
                     <h2 style = "margin-left: 15px;" id = "down">Down :</h2>
                 </div>
-                <div class = "slave-containers">
+                <div class = "slave-containers" id = "stockage-container">
                     <h1 align = "left">Stockage</h1>
-                    
                 </div>
             </div>
             <div class = "process-container">
@@ -97,7 +93,7 @@
                     <button onclick = "clearBox('content')"><i class = "ri-eye-line"></i> Sys specs</button>
                 </li>
                 <li>
-                    <button><i class = "ri-keyboard-box-line"></i> Keyboard</button>
+                    <button onclick = "loadScreen()"><i class = "ri-keyboard-box-line"></i> Keyboard</button>
                 </li>
                 <li>
                     <button><i class = "ri-mouse-line"></i> Mouse</button>
@@ -111,6 +107,10 @@
         </nav>
     </main>
 
+    <!--
+    <div id = "loader">
+    <script src = "../js/loadingScreen.js"></script
+    </div>-->
 
     <script src = "../js/render.js"></script>
     <script src = "../js/componentsInfo.js"></script>
