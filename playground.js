@@ -75,6 +75,5 @@ async function getGPUTemperature() {
     return 'unknown';
   }
 } 
-*/
-
 const si = require('systeminformation');
+*/

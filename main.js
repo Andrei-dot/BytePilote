@@ -10,7 +10,6 @@ const createWin = () => {
         resizable: false,
         icon: __dirname + '/icon.ico',
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
             contextIsolation: false,
         }

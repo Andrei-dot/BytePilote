@@ -111,7 +111,8 @@ main .content .row .slave-containers {
   border: 1px solid #282b30;
 }
 main .content .row .slave-containers h2 {
-  margin-left: 15px;
+  font-weight: 200;
+  margin-left: 10px;
   margin-top: 8px;
 }
 main .content .row .slave-containers:hover {

@@ -7,7 +7,9 @@ const { copyFileSync, cpSync }      = require('fs');
 const diskinfo                      = require('diskinfo');
 const execAsync                     = promisify(exec);
 const osvar                         = process.platform;
-//const speedTest             = require('speedtest-net');
+const networkSpeed                  = require('network-speed');
+const { isGeneratorObject } = require('util/types');
+const networkSpeedTest              = new networkSpeed();
 
 const cpu                           = osu.cpu;
 const gpuTempeturyCommand           = 'nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'; 
@@ -17,6 +19,7 @@ const isWin     = false;
 const isMac     = false;
 const isLinux   = false;
 
+/*
 addEventListener("DOMContentLoaded", (e) => {
     switchPlatform();
 });
@@ -40,13 +43,44 @@ function switchPlatform() {
             break;
     }
 }
+*/
+/******************************
+ *  
+ * Network info 
+ * 
+ *******************************/
+const up = document.getElementById("up");
+const down = document.getElementById("down");
+
+async function getNetworkDownloadSpeed() {
+    const baseUrl = 'https://eu.httpbin.org/stream-bytes/500000';
+    const fileSizeInBytes = 500000;
+    const speed = await networkSpeedTest.checkDownloadSpeed(baseUrl, fileSizeInBytes);
+    down.innerText = "Down : " + speed.mbps + " mbps";
+    // console.log("Download : " + speed.mbps);
+}
+
+async function getNetworkUploadSpeed() {
+    const options = {
+      hostname: 'www.google.com',
+      port: 80,
+      path: '/catchers/544b09b4599c1d0200000289',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const fileSizeInBytes = 2000000
+    const speed = await networkSpeedTest.checkUploadSpeed(options, fileSizeInBytes);
+    up.innerText = "Up : " + speed.mbps + " mbps";
+    // console.log("Upload : " + speed.mbps);
+}
 
 /******************************
  *  
- * Stockage info 
+ * Storage info 
  * 
  *******************************/
-
 diskinfo.getDrives(function(err,devices) {
     const div = document.getElementById("stockage-container");
 
@@ -94,11 +128,11 @@ function editCircleProgressBarPercentage(bar,percentage) {
 }
 
 function editCircleBarTitles(bar,percentage) {
-        const progressBarCpuTitle = document.getElementById(`${bar}`);
-        progressBarCpuTitle.innerText = `${percentage}` + "%";
+    const progressBarCpuTitle = document.getElementById(`${bar}`);
+    progressBarCpuTitle.innerText = `${percentage}` + "%";
 }
 
-const loop = setInterval(() => {
+const loopCpuAndRam = setInterval(() => {
     cpu.usage()
     .then(cpuPercentage => {
         // CPU
@@ -107,17 +141,15 @@ const loop = setInterval(() => {
     })
     editCircleProgressBarPercentage("circle-progress-bar-ram",((opsys.freemem / opsys.totalmem) * 100 / 2).toFixed(0));
     editCircleBarTitles("h1-circle-progress-bar-ram",((opsys.freemem / opsys.totalmem) * 100 / 2).toFixed(0));
-
-    // const upload = document.getElementById("up");
-    // const download = document.getElementById("download");
 }, 500);
 
-const loopGpu = setInterval(() => {
+const loopGpuAndNetwork = setInterval(() => {
     getGPUTemperature().then(gpuPercentage => {
         editGpuTempBar(gpuPercentage);    
     })
 }, 500);
 
-function clearBox(elementID) {
-    document.getElementById(elementID).innerHTML = "";
-}
+const getNetworkSpeed = setInterval(() => {
+    getNetworkDownloadSpeed();
+    getNetworkUploadSpeed();
+}, 2000);
