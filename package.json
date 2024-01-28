@@ -1,7 +1,7 @@
 {
-  "name": "first_project",
+  "name": "bytepilote",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple software inspired of NZXT Cam, still in dev.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,31 +12,26 @@
   "author": "Andrei-Dot",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^28.1.0"
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1",
+    "electron-rebuild": "^3.2.9",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^3.0.3"
   },
   "dependencies": {
     "diskinfo": "^0.0.3",
-    "electron-builder": "^24.9.1",
     "electron-packager": "^17.1.2",
-    "electron-reload": "^2.0.0-alpha.1",
-    "lodash": "^4.17.21",
     "network-speed": "^2.1.1",
     "node-disk-info": "^1.3.0",
     "node-os-utils": "^1.3.7",
-    "nodemon": "^3.0.2",
-    "process-list": "^2.0.0",
     "ps-list": "^8.1.1",
     "ps-node": "^0.1.6",
-    "remixicon": "^4.0.1",
     "systeminformation": "^5.21.21"
   },
   "build": {
     "appId": "fr.andreidot.app",
-    "productName": "First Electron Project",
+    "productName": "BytePilote",
     "target": "NSIS",
-    "directory": {
-      "output": "build"
-    },
     "nsis": {
       "allowToChangeInstallationDirectory": true,
       "oneClick": false

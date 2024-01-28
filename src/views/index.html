@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href = "../styles/css/style.css">
     <title>BytePilote</title>
 </head>
 <body>
@@ -12,8 +12,10 @@
         <div class = "content" id = "content">
             <div class = "row">
                 <div class = "master-containers" id = "cpuContainer">
-                    <h1 align = "left">CPU</h1>
-                    
+                    <a href = "./cpuDetails.html">
+
+                        <h1 align = "left">CPU</h1>
+                        
                         <div class = "hz-bar-container">
                             <div class = "hz-progress-bar" id = "hz-progress-bar-cpu-1">
                                 <div class = "hz-progress-bar-filler" style = "width: 30%;"></div>
@@ -25,8 +27,9 @@
                         </div>
 
                         <div class = "circle-progress-bar" id = "circle-progress-bar-cpu">
-                            <h1 align = "center" id ="h1-circle-progress-bar" style = "margin-right: 3px;">75%</h1>
+                            <h1 align = "center" id ="h1-circle-progress-bar" style = "margin-right: 3px;">Loading...</h1>
                         </div>
+                    </a>
                 </div>
 
                 <div class = "master-containers" id = "gpuContainer">
@@ -44,7 +47,7 @@
                     </div>
                     
                     <div class = "circle-progress-bar" id = "circle-progress-bar-gpu">
-                        <h1 align = "center" id = "h1-circle-progress-bar-gpu" style = "margin-right: 3px;">75%</h1>
+                        <h1 align = "center" id = "h1-circle-progress-bar-gpu" style = "margin-right: 3px;">Loading...</h1>
                     </div>
                 </div>
             </div>
@@ -53,14 +56,14 @@
                 <div class = "slave-containers">
                     <h1 align = "left">RAM</h1>
                     <div class = "circle-progress-bar" id = "circle-progress-bar-ram">
-                        <h1 align = "center" id = "h1-circle-progress-bar-ram" style = "margin-right: 3px;">75%</h1>
+                        <h1 align = "center" id = "h1-circle-progress-bar-ram" style = "margin-right: 3px;">Loading...</h1>
                     </div>
                 </div>
                 <div class = "slave-containers">
                     <h1 align = "left">Réseau</h1>
 
-                    <h2 style = "margin-left: 15px;" id = "up">Up : </h2>
-                    <h2 style = "margin-left: 15px;" id = "down">Down :</h2>
+                    <h2 style = "margin-left: 15px;" id = "up">Up : loading...</h2>
+                    <h2 style = "margin-left: 15px;" id = "down">Down : loading...</h2>
                 </div>
                 <div class = "slave-containers" id = "stockage-container">
                     <h1 align = "left">Stockage</h1>
@@ -73,26 +76,55 @@
         </div>
         <nav>
             <ul>
-                <li>
-                    <button class = "active" onclick="editProgressBarPercentage(100)"><i class="ri-computer-line"></i> Overview</button>
-                </li>
-                <li>
-                    <button><i class = "ri-eye-line"></i> Sys specs</button>
-                </li>
-                <li>
-                    <button onclick = "loadScreen()"><i class = "ri-keyboard-box-line"></i> Keyboard</button>
-                </li>
-                <li>
-                    <button><i class = "ri-mouse-line"></i> Mouse</button>
-                </li>
+                <a href = "#">    
+                    <li>
+                        <button class = "active">
+                            <i class="ri-computer-line"></i> 
+                            Overview
+                        </button>
+                    </li>
+                </a>  
+
+                <a href = "./sysSpecs.html">
+                    <li>
+                        <button>
+                            <i class = "ri-eye-line"></i> 
+                            Sys specs
+                        </button>
+                    </li>
+                </a>    
+
+                <a href = "./keyboard.html">
+                    <li>
+                        <button>
+                            <i class = "ri-keyboard-box-line"></i> 
+                            Keyboard
+                        </button>
+                    </li>
+                </a>
+
+                <a href = "./mouse.html">
+                    <li>
+                        <button>
+                            <i class = "ri-mouse-line"></i> 
+                            Mouse
+                        </button>
+                    </li>
+                </a>
 
                 <div class = "hz-separator"></div>
-                <li>
-                    <button style="bottom: 0; position:absolute; margin-bottom: 15px; border-top: 2px solid #36393e;"><i class = "ri-settings-line"></i> Settings</button>
-                </li>
+                <a href = "./settings.html">
+                    <li>
+                        <button style="bottom: 0; position:absolute; margin-bottom: 15px; border-top: 2px solid #36393e;">
+                            <i class = "ri-settings-line"></i> 
+                            Settings
+                        </button>
+                    </li>
+                </a>
             </ul>
         </nav>
     </main>
     <script type = "module" src = "../js/componentsInfo.js"></script>
+    <!--<script type="module" src="../js/renderer.js"></script>-->
 </body>
 </html>

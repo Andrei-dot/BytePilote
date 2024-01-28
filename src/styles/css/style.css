@@ -4,6 +4,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   background-color: #36393e;
   color: white;
@@ -131,7 +136,7 @@ main .content .process-container {
 main .content .process-container h1 {
   margin-top: 5px;
   padding: 10px;
-  font-weight: 200;
+  font-weight: 500;
   font-size: 20px;
   width: 100%;
   color: white;
@@ -182,28 +187,23 @@ nav button:hover {
   color: white;
 }
 
-/*
-#loader {
-    position: absolute;
-    top: 0;
-    background-color: $navbarColor;
-    width: 100%;
-    height: 100%;
-    h1 {
-        position: absolute;
-        top: 300;
-        font-size: 32px;
-        color: white;
-        font-weight: bold;
-    }
-
-}*/
-#loader {
-  background-color: #282b30;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  position: absolute;
+.device-list h1 {
+  margin-top: 5px;
+  font-weight: 200;
+  font-size: 24px;
+}
+.device-list h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600px;
+  font-size: 18px;
+}
+.device-list ul {
+  padding: 0px;
+}
+.device-list ul li {
+  color: gray;
+  margin-left: 15px;
 }
 
 @keyframes fadeBoxBorder {
@@ -213,4 +213,80 @@ nav button:hover {
   100% {
     border: 1px solid #424549;
   }
+}
+/*
+ *
+ * Preloader
+ *
+ *
+ */
+.preloader {
+  width: 100%;
+  height: 100%;
+  color: #36393e;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #282b30;
+}
+.preloader h1 {
+  color: white;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.preloader img {
+  background-repeat: no-repeat;
+  height: 128px;
+  width: 128px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.preloader:hover {
+  animation: fadePreloader 2s ease-in;
+}
+
+@keyframes fadePreloader {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+/*
+ *
+ * Details template
+ *
+ *
+ */
+.details {
+  position: absolute;
+  width: 98%;
+  height: 96%;
+}
+.details .details-topbar {
+  display: flex;
+  font-size: 12px;
+  border-bottom: 1px solid gray;
+}
+.details .details-topbar a {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  color: violet;
+}
+.details .details-topbar h1 {
+  margin-top: 13px;
+  font-weight: 200;
+}
+.details .details-info {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
 }/*# sourceMappingURL=style.css.map */

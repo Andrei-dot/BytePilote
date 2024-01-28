@@ -3,47 +3,15 @@ const { exec }                      = require('child_process');
 const { promisify }                 = require('util');
 const opsys                         = require('os');
 const { stdout, stderr }            = require('process');
-const { copyFileSync, cpSync }      = require('fs');
 const diskinfo                      = require('diskinfo');
 const execAsync                     = promisify(exec);
-const osvar                         = process.platform;
 const networkSpeed                  = require('network-speed');
-const { isGeneratorObject } = require('util/types');
 const networkSpeedTest              = new networkSpeed();
 
 const cpu                           = osu.cpu;
 const gpuTempeturyCommand           = 'nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'; 
 const gpuNameCmd                    = 'nvidia-smi --query-gpu=gpu_name --format=csv, noheader'
 
-const isWin     = false;
-const isMac     = false;
-const isLinux   = false;
-
-/*
-addEventListener("DOMContentLoaded", (e) => {
-    switchPlatform();
-});
-
-function switchPlatform() {
-    switch(osvar) {
-        case "win32":
-            // alert("[!] Windows OS"); 
-            isWin = true;
-            break;
-        case "linux":
-            // alert("linux");
-            isLinux = true;
-            break;
-        case "darwin": 
-            // alert("macOs");
-            isMac = true;
-            break;
-        default:
-            alert("[!] Unknown platform.");
-            break;
-    }
-}
-*/
 /******************************
  *  
  * Network info 
