@@ -1,8 +1,9 @@
 const { app, BrowserWindow, ipcMain }               = require('electron');
 const path                                          = require('path');     
 
-
-require('electron-reload')(__dirname);
+if(!app.isPackaged) {
+    require('electron-reload')(__dirname);
+}
 
 const createWin = () => {
     const win = new BrowserWindow({
@@ -19,8 +20,11 @@ const createWin = () => {
             // preload: path.join(__dirname, 'src', 'js', 'preload.js')
         }
     })
+    
+    if(!app.isPackaged) {
+        win.webContents.openDevTools();
+    }
 
-    win.webContents.openDevTools();
     win.loadFile('./src/views/index.html');
 }
 
