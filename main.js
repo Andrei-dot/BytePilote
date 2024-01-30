@@ -13,6 +13,11 @@ const createWin = () => {
         resizable: false,
         fullscreenable: false,
         icon: path.join(__dirname, 'src', 'resources', 'medias', '/icon.ico'),
+        titleBarStyle: 'customButtonsOnHover',
+        titleBarOverlay: {
+            color: '#2f3241',
+            symbolColor: '#74b1be'                
+        },
         webPreferences: {
             // webviewTag: true,
             nodeIntegration: true,
@@ -20,7 +25,7 @@ const createWin = () => {
             // preload: path.join(__dirname, 'src', 'js', 'preload.js')
         }
     })
-    
+
     if(!app.isPackaged) {
         win.webContents.openDevTools();
     }
